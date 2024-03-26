@@ -1,0 +1,20 @@
+<p>Veriler Sayfası</p>
+<h2>Ders {{lesson}}</h2>
+<h4>{{class}}. Sınıf</h4>
+
+<h5>Ders Var mı?</h5>
+
+<p *ngIf="isLesson">Evet</p>
+<p *ngIf="!isLesson">Hayır</p>
+
+<p> {{isLesson ? 'Evet' : 'Hayır'}} </p>
+
+<a (click)="isLessonStatus()" >Ders Durumunu Değiştir</a>
+
+<h1>Dersler</h1>
+<div *ngFor="let item of lessons">
+    <p (click)="selectedLesson(item.id)">{{item.id}} - {{item.title}} 
+        <span *ngIf="selectedLessonId == item.id">{{item.teacher}} - {{item.day}} {{item.hour}}</span>
+    </p>
+</div>
+
