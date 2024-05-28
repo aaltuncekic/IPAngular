@@ -1,0 +1,13 @@
+<p>{{id}}</p>
+<p>{{parametre}}</p>
+
+<div *ngFor="let ders of dersler" (click)="showDetail(ders)">
+    {{ders.name}}
+</div>
+
+<div *ngIf="lesson">
+    <p>Ders: {{lesson.name}}</p>
+    <p>Öğretmen: {{lesson.teacher}}</p>
+    <p>Süre: {{lesson.duration}}</p>
+    <p>Gün: {{lesson.day}}</p> 
+</div>

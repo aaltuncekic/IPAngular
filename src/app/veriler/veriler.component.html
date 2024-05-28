@@ -1,4 +1,8 @@
-<p>Veriler Sayfası</p>
+<p 
+routerLink="/parametre/ders/15">
+Veriler Sayfası</p>
+<p routerLink="/">Ana Sayfa</p>
+
 <h2>Ders {{lesson}}</h2>
 <h4>{{class}}. Sınıf</h4>
 
@@ -18,3 +22,6 @@
     </p>
 </div>
 
+<p (click)="logOut()">
+    Çıkış Yap
+</p>

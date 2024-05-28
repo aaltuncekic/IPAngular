@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-veriler',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './veriler.component.html',
   styleUrl: './veriler.component.scss'
 })
@@ -19,7 +20,17 @@ export class VerilerComponent {
 
   selectedLessonId:number=0;
 
-  constructor(){
+  constructor(
+    private router:Router
+  ){
+
+    let isLogin = localStorage.getItem("isLogin")
+    if(!isLogin){
+      alert("Kullanıcı girişi yapınız")
+      this.router.navigate(['/login'])
+
+    }
+
     this.lesson = "İnternet Programcılığı II"
     // this.lesson = 15;
 
@@ -67,5 +78,11 @@ export class VerilerComponent {
   selectedLesson(id:number){
 
     this.selectedLessonId = id
+  }
+  
+
+  logOut(){
+    localStorage.removeItem("isLogin")
+    this.router.navigate(['/login'])
   }
 }
